@@ -293,7 +293,8 @@ Header Style
 */
 
 .background-header {
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
+  /* background-color: #13547a; */
   border-radius: 0px 0px 25px 25px;
   height: 80px!important;
   position: fixed!important;
@@ -679,7 +680,9 @@ Banner Style
 */
 
 .main-banner {
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  /* background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%); */
+  background: linear-gradient(15deg, #0b0c38 10%, #1b1f1e 100%);
+
   background-position: right bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -709,7 +712,7 @@ Banner Style
 }
 
 .main-banner .item span.category {
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   color: #fff;
   font-size: 14px;
   text-transform: uppercase;
@@ -816,23 +819,16 @@ Services Style
 .services .service-item:hover .icon img {
   margin-top: -10px;
 }
+ 
+.services .service-text {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 
 .services .service-item {
   position: relative;
-  margin-top: 95px;
-}
-
-.services .service-item .icon {
-  width: 190px;
-  height: 190px;
-  display: inline-block;
-  text-align: center;
-  line-height: 190px;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-  border-radius: 50%;
-  position: absolute;
-  right: 0;
-  top: -95px;
+  margin-top: 30px;
 }
 
 .services .service-item .icon img {
@@ -842,10 +838,12 @@ Services Style
 
 .services .service-item .main-content {
   border-radius: 25px;
-  padding: 80px 30px 50px 30px;
-  background: linear-gradient(15deg, rgba(19, 84, 122, 0.6) 0%, rgba(128, 208, 199, 0.6) 100%);
+  height: 300px;
+  padding: 50px 30px 50px 30px;
+  background-color: white;
+  box-shadow: 3px 6px 17px -2px #000000b0;
   margin-bottom: 30px;
-  margin-right: 80px;
+  margin-right: 20px;
   transition: all .4s;
 }
 
@@ -860,6 +858,22 @@ Services Style
 .services .service-item p {
   color: #4a4a4a;
   margin-bottom: 25px;
+}
+
+
+@media (max-width: 767px) {
+  .services .service-row  {
+    box-sizing: border-box;
+    padding-left: 20px;
+  }
+  .services .service-row .service-box  {
+    box-sizing: border-box;
+    margin-top: -40px;
+  }
+  .services .service-row .service-box1  {
+    box-sizing: border-box;
+    margin-top: -0px;
+  }
 }
 
 /* 
@@ -882,7 +896,7 @@ About Style
   z-index: -1;
   width: 84%;
   height: 100%;
-  background: linear-gradient(15deg, rgba(19, 84, 122, 0.6) 0%, rgba(128, 208, 199, 0.6) 100%);
+  background: linear-gradient(15deg, #161752 40%, #262928 100%);
   content: '';
   border-top-left-radius: 500px;
   border-bottom-left-radius: 500px;
@@ -891,7 +905,8 @@ About Style
 .accordion {
   margin-top: -40px;
   margin-bottom: -40px;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
+
   border-radius: 40px;
   padding: 80px 50px 50px 50px;
 }
@@ -932,14 +947,18 @@ h2.accordion-header button {
   text-align: center;
   line-height: 30px;
   border-radius: 50%;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   color: #fff;
 }
 
 .accordion-button:not(.collapsed)::after {
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-  line-height: 32px;
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
+   line-height: 32px;
   content: '-';
+}
+
+.about-text{
+  color: white;
 }
 
 .accordion-body {
@@ -971,10 +990,12 @@ Courses Style
 
 .event_filter {
   text-align: center;
+  border-radius: 50px;
+
 }
 
 .event_filter {
-  background: linear-gradient(15deg, rgba(19, 84, 122, 0.6) 0%, rgba(128, 208, 199, 0.6) 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   border-radius: 50px;
   padding: 15px 40px;
   list-style: none;
@@ -1008,7 +1029,9 @@ Courses Style
 }
 
 .events_item .thumb img {
+  
   margin-bottom: -5px;
+  height: 200px;
 }
 
 .events_item .thumb span.category {
@@ -1029,7 +1052,7 @@ Courses Style
   position: absolute;
   right: -30px;
   top: -50px;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);;
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   width: 180px;
   height: 130px;
   border-radius: 50%;
@@ -1054,7 +1077,8 @@ Courses Style
 }
 
 .events_item {
-  background: linear-gradient(15deg, rgba(19, 84, 122, 0.6) 0%, rgba(128, 208, 199, 0.6) 100%);
+  box-shadow: 3px 6px 17px -2px #000000b0;
+  /* background: linear-gradient(15deg, #161752 40%, #262928 100%); */
   border-radius: 25px;
   margin-bottom: 30px;
   position: relative;
@@ -1108,7 +1132,7 @@ Facts Style
   z-index: -1;
   width: 95%;
   height: 100%;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   content: '';
   border-top-right-radius: 500px;
   border-bottom-right-radius: 500px;
@@ -1158,7 +1182,7 @@ Team Style
 
 .team {
   margin-top: 100px;
-    padding-top: 140px;
+  padding-top: 140px;
 }
 
 .team-member {
@@ -1182,17 +1206,18 @@ Team Style
 .team-member .main-content {
   border-radius: 25px;
   padding: 140px 20px 40px 20px;
-  background: linear-gradient(15deg, rgba(19, 84, 122, 0.6) 0%, rgba(128, 208, 199, 0.6) 100%);
+  background: linear-gradient(15deg, #161752 40%, #262928 100%);
   text-align: center;
 }
 
 .team-member .main-content span.category {
-  color: #1e1e1e;
+  color: #ffffff;
   font-size: 15px;
 }
 
 .team-member .main-content h4 {
   font-size: 22px;
+  color: white;
   font-weight: 600;
   margin-top: 8px;
   margin-bottom: 15px;
@@ -1202,6 +1227,10 @@ Team Style
   display: inline-block;
   margin: 0px 2px;
 }
+.team-member .main-content .member-tittle {
+  color: white;
+}
+
 
 .team-member .main-content ul li a {
   background-color: #fff;
@@ -1221,6 +1250,81 @@ Team Style
   color: #fff;
 }
 
+/* Coo Section */
+
+.coo__section {
+  position: relative;
+  padding: 80px 0px;
+  margin-top: 150px;
+}
+
+.coo__inner {
+  display: flex;
+  max-width: 1260px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 0 30px;
+  justify-content: center;
+}
+
+.coo__inner .coo__image {
+  width: 40%;
+}
+
+.coo__inner .coo__image img {
+  border-top-left-radius: 150px;
+  border-bottom-left-radius: 150px;
+}
+
+.coo__inner .coo__content {
+  width: 60%;
+  margin-left: -60px;
+}
+
+.coo__section .item {
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
+  border-radius: 25px;
+  padding: 80px;
+  position: relative;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.coo__section .item p {
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.coo__section .item img {
+  border-radius: 50%;
+  max-width: 100px;
+  float: left;
+  margin-right: 25px;
+}
+
+.coo__section .item span {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.item h4 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.section-heading {
+  text-align: center;
+}
+
+
 
 /* 
 ---------------------------------------------
@@ -1232,6 +1336,7 @@ Testimonials Style
   position: relative;
   padding: 80px 0px;
   margin-top: 150px;
+  color: white;
 }
 
 .testimonials:before {
@@ -1242,7 +1347,7 @@ Testimonials Style
   z-index: -1;
   width: 65%;
   height: 100%;
-  background: linear-gradient(15deg, rgba(19, 84, 122, 0.6) 0%, rgba(128, 208, 199, 0.6) 100%);
+  background: linear-gradient(15deg, #161752 40%, #262928 100%);
   content: '';
   border-top-left-radius: 500px;
   border-bottom-left-radius: 500px;
@@ -1251,15 +1356,17 @@ Testimonials Style
 .testimonials .section-heading {
   margin-bottom: 0px;
   margin-left: 60px;
+  color: white;
   vertical-align: middle;
 }
 
 .testimonials .section-heading p {
   margin-top: 50px;
+  color: white;
 }
 
 .testimonials .item {
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   border-radius: 25px;
   padding: 80px;
 }
@@ -1301,6 +1408,15 @@ Testimonials Style
   right: -25px;
   text-align: right;
 }
+
+.testimonials .col-lg-5 .section-heading h6 {
+  color: white;
+}
+
+.testimonials .col-lg-5 .section-heading h2 {
+  color: white;
+}
+
 
 .testimonials .owl-nav .owl-prev i,
 .testimonials .owl-nav .owl-next i {
@@ -1376,7 +1492,7 @@ Events Style
 .events .item ul li span.category {
   font-size: 14px;
   text-transform: uppercase;
-  color: #1e1e1e;
+  color: #ffffff;
   background-color: #fff;
   padding: 8px 20px;
   border-radius: 25px;
@@ -1440,7 +1556,7 @@ Contact Style
   z-index: -1;
   width: 65%;
   height: 100%;
-  background: linear-gradient(15deg, rgba(19, 84, 122, 0.6) 0%, rgba(128, 208, 199, 0.6) 100%);
+  background: linear-gradient(15deg, #161752 40%, #262928 100%);
   content: '';
   border-top-right-radius: 500px;
   border-bottom-right-radius: 500px;
@@ -1449,11 +1565,22 @@ Contact Style
 
 .contact-us  .section-heading {
   margin-right: 110px;
+  color: white;
   margin-bottom: 0px;
 }
 
+.contact-us  .section-heading h6 {
+  color: white;
+}
+
+.contact-us  .section-heading h2 {
+  color: white;
+}
+
+
 .contact-us  .section-heading p {
   margin-top: 50px;
+  color: white;
 }
 
 .contact-us .special-offer {
@@ -1469,7 +1596,7 @@ Contact Style
   position: absolute;
   left: 0;
   top: 0;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   width: 80px;
   padding: 30px 8px;
   line-height: 25px;
@@ -1522,7 +1649,7 @@ Contact Style
   display: inline-block;
   text-align: center;
   line-height: 50px;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   color: #fff;
   border-radius: 50%;
 }
@@ -1530,7 +1657,7 @@ Contact Style
 .contact-us .contact-us-content {
   border-radius: 25px;
   padding: 80px;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   position: relative;
   z-index: 1;
 }
@@ -1620,7 +1747,7 @@ Contact Style
 .contact-us-content .more-info {
   text-align: center;
   background: rgb(85,0,227);
-  background: linear-gradient(90deg, rgba(85,0,227,1) 0%, rgba(198,61,255,1) 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   border-radius: 0px 0px 23px 23px;
   padding: 45px 30px 15px 30px;
 }
@@ -1651,7 +1778,7 @@ Footer Style
 footer {
   margin-top: 150px;
   position: relative;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background: linear-gradient(15deg, #0b0c38 40%, #1b1f1e 100%);
   vertical-align: middle;
   min-height: 150px;
   border-radius: 150px 150px 0px 0px;
@@ -1919,3 +2046,48 @@ body {
     width: 95%;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .coo__section {
+    margin-top: -40px;
+    padding-top: 0px;
+    margin-bottom: 60px;
+  }
+  .coo__inner {
+    flex-direction: column;
+    padding: 0 0px;
+  }
+  .coo__inner .coo__image {
+    width: 75%;
+  }
+  .coo__inner .coo__image img {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 25px;
+  }
+  .coo__inner .coo__content {
+    width: 100%;
+    margin-left: 0;
+  }
+  .coo__section .item {
+    padding: 30px;
+    border-bottom-right-radius: 25px !important;
+    border-bottom-left-radius: 25px !important;
+    border-radius: 0;
+  }
+  .coo__section .item p {
+    /* font-size: 14px;
+    line-height: 14px; */
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .team-member-b {
+    margin-top: -4px;
+  }
+}
+@media (max-width: 767px) {
+  .contact-section-b{
+    margin-top: 22px;
+  }
+}    

@@ -29,17 +29,17 @@ jobs:
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
         run: |
-          rsync -avz -e "ssh -p $SERVER_PORT" --exclude '.git' ./ $SERVER_USER@$SERVER_HOST:/var/www/your_project_name/
+          rsync -avz -e "ssh -p $SERVER_PORT" --exclude '.git' ./ $SERVER_USER@$SERVER_HOST:/path/to/your/project/
 
-      - name: Install dependencies and start server
+      # If you need to run any commands after deploying, add them here
+      - name: Run post-deployment commands
         env:
           SERVER_USER: ${{ secrets.SERVER_USER }}
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
         run: |
           ssh -p $SERVER_PORT $SERVER_USER@$SERVER_HOST << 'EOF'
-            cd /var/www/your_project_name
-            npm install
-            npm run build  # Use the appropriate build command for your project
-            pm2 restart all || pm2 start npm --name "your_project_name" -- start
+            # Commands to run after deployment, if needed
+            # For example, restart a web server or clear caches
+            # sudo systemctl restart nginx
           EOF

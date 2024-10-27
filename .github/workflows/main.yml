@@ -1,0 +1,61 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - ${{ secrets.MAIN_BRANCH }}  # Trigger on pushes to the specified main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Verify SSH Connection
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          echo "Testing SSH connection..."
+          ssh -o StrictHostKeyChecking=no -p $SSH_PORT $SSH_USER@$SSH_HOST "echo SSH connection successful"
+          echo "SSH connection verified."
+
+      - name: Sync files to server
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          WORK_DIR: ${{ secrets.WORK_DIR }}
+        run: |
+          echo "Syncing files to server..."
+          rsync -avz -e "ssh -p $SSH_PORT" --exclude '.git' ./ $SSH_USER@$SSH_HOST:$WORK_DIR/
+          echo "Files synced."
+
+      - name: Install dependencies and start server
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          WORK_DIR: ${{ secrets.WORK_DIR }}
+        run: |
+          echo "Installing dependencies and starting server..."
+          ssh -p $SSH_PORT $SSH_USER@$SSH_HOST << 'EOF'
+            set -e  # Exit immediately if a command exits with a non-zero status
+            mkdir -p ~/.ssh
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
+            ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
+            cd $WORK_DIR
+            npm install
+            npm run build  # Adjust if your build command is different
+            pm2 restart all || pm2 start npm --name "your_project_name" -- start
+          EOF
+          echo "Server started successfully."

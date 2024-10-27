@@ -1,0 +1,29 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main  # or the branch you want to deploy from
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Deploy to Hostinger
+      env:
+        HOSTINGER_FTP_HOST: ${{ secrets.HOSTINGER_FTP_HOST }}
+        HOSTINGER_FTP_USER: ${{ secrets.HOSTINGER_FTP_USER }}
+        HOSTINGER_FTP_PASSWORD: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+      run: |
+        sudo apt-get install lftp
+        lftp -f "
+        set ftp:ssl-allow no
+        open $HOSTINGER_FTP_HOST
+        user $HOSTINGER_FTP_USER $HOSTINGER_FTP_PASSWORD
+        mirror -R ./ ./  # Adjust this path as needed
+        bye
+        "

@@ -29,7 +29,7 @@ jobs:
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
         run: |
-          rsync -avz -e "ssh -p $SERVER_PORT" --exclude '.git' ./ $SERVER_USER@$SERVER_HOST:/path/to/your/project/
+          rsync -avz -e "ssh -p $SERVER_PORT" --exclude '.git' ./ $SERVER_USER@$SERVER_HOST:/home/$SERVER_USER/public_html/
 
       # If you need to run any commands after deploying, add them here
       - name: Run post-deployment commands

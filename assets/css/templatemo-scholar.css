@@ -180,8 +180,8 @@ body {
 }
 
 .main-button a:hover {
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-  color: #fff;
+  background: linear-gradient(15deg, #0b0c38 10%, #1b1f1e 100%);
+  color: #fff !important;
 }
 
 /* 
